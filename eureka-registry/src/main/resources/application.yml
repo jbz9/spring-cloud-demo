@@ -1,0 +1,25 @@
+#\u6CE8\u518C\u4E2D\u5FC3\u7684\u540D\u5B57
+spring:
+  application:
+    name: my-eureka
+
+#\u670D\u52A1\u7AEF\u53E3
+server:
+  port: 9999
+
+#\u6CE8\u518C\u4E2D\u5FC3\u76F8\u5173\u914D\u7F6E
+eureka:
+  server:
+  # \u914D\u7F6E\u5173\u95ED\u81EA\u6211\u4FDD\u62A4\uFF0C\u5E76\u6309\u9700\u914D\u7F6EEureka Server\u6E05\u7406\u65E0\u6548\u8282\u70B9\u7684\u65F6\u95F4\u95F4\u9694\uFF085000ms\uFF09\u3002
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 5000
+  client:
+  # \u4E0D\u5C06\u81EA\u5DF1\u6CE8\u518C\u5230\u6CE8\u518C\u4E2D\u5FC3
+    register-with-eureka: false
+  # \u56E0\u4E3A\u81EA\u5DF1\u662F\u6CE8\u518C\u4E2D\u5FC3\uFF0C\u56E0\u6B64\u4E0D\u7528\u68C0\u7D22\u670D\u52A1\u4FE1\u606F
+    fetch-registry: false        #true\uFF1A Cannot execute request on any know server
+  # \u6CE8\u518C\u4E2D\u5FC3\u7684\u5730\u5740
+    service-url:
+      defaultZone: http://localhost:9999/eureka/
+  instance:
+    prefer-ip-address: true
